@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebApplication1.Models.AlbumType>
+
+@{
+    ViewData["Title"] = "Album Types";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Album Types</h1>
+
+<p>
+    <a asp-action="Create">Create New Type</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Album_TypeDesc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Album_TypeDesc)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Album_TypeID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Album_TypeID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Album_TypeID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
